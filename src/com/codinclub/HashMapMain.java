@@ -10,7 +10,6 @@ public class HashMapMain {
          * 5. Then we add the key and value in the Hashmap
          */
         public static void main(String[] args) {
-
             String string = "To be or not to be";
             String[] words = string.toLowerCase().split(" ");
 
