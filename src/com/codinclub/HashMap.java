@@ -1,14 +1,13 @@
 package com.codinclub;
 
 import java.util.ArrayList;
-
 /**
- *  We have created this class for the HashMap implementation.
- *  [1]- We have created the method get to find the value of a specific key.
- *  [2] Method getBucketNumber to find the index of the arrayList.
- *  [3] Method add to add the node with key & value to the MapNode.
- * @param <K> - Here we have pass the Key.
- * @param <V> - Here we pass the Value.
+ *  We have created this class for the HashMap implementation
+ *  [1]- We have created the method get to find the value of a specific key
+ *  [2] Method getBucketNumber to find the index of the arrayList
+ *  [3] Method add to add the node with key & value to the MapNode
+ * @param <K> - Here we have pass the Key
+ * @param <V> - Here we pass the Value
  */
 public class HashMap<K, V> {
 
@@ -55,6 +54,7 @@ public class HashMap<K, V> {
         return mapNode == null ? null : mapNode.getValue();
     }
 
+
     private int getBucketNumber(K key) {
         /**
          * [2] Method getBucketNumber to find the index of the arrayList
@@ -68,6 +68,7 @@ public class HashMap<K, V> {
         int hashCode = Math.abs(key.hashCode());
         return hashCode % this.numberOfBucket;
     }
+
 
     public void add(K key, V value) {
         /**
@@ -96,10 +97,11 @@ public class HashMap<K, V> {
         } else {
             myMapNode.setValue(value);
         }
+
     }
 
     @Override
     public String toString() {
-        return "HashMap{" + arrayList +'}';
+        return "HashMap{" + arrayList + '}';
     }
 }

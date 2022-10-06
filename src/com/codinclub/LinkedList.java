@@ -33,7 +33,6 @@ public class LinkedList <K>{
          * 2. If elements present then we add the element to the tail and make the newNode as tail
          * @param myNode - Here we pass the node to append at last
          */
-
         if (this.head == null) {
             this.head = myNode;
         }
@@ -44,13 +43,10 @@ public class LinkedList <K>{
             this.tail = myNode;
         }
     }
-
     @Override
     public String toString() {
         return "\n MyLinkedListNodes{" + head + "}";
     }
-
-
     public void printMyNodes() {
         System.out.println(" My Nodes :" + head);
     }
