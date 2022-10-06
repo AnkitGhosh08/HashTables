@@ -30,8 +30,6 @@ public class HashMap<K, V> {
             arrayList.add(null);
         }
     }
-
-
     public V get(K key) {
         /**
          * [1]- We have created the method get to find the value of a specific key
@@ -53,8 +51,6 @@ public class HashMap<K, V> {
         MyMapNode<K, V> mapNode = (MyMapNode<K, V>) linkedList.search(key);
         return mapNode == null ? null : mapNode.getValue();
     }
-
-
     private int getBucketNumber(K key) {
         /**
          * [2] Method getBucketNumber to find the index of the arrayList
@@ -68,8 +64,6 @@ public class HashMap<K, V> {
         int hashCode = Math.abs(key.hashCode());
         return hashCode % this.numberOfBucket;
     }
-
-
     public void add(K key, V value) {
         /**
          * [3] Method add to add the node with key & value to the MapNode
@@ -97,10 +91,27 @@ public class HashMap<K, V> {
         } else {
             myMapNode.setValue(value);
         }
-
     }
+    public boolean remove(K key) {
+        /**
+         * [4] Method remove to delete the LinkList from array
+         * 1. First we pass the key and find the index of the LinkedList
+         * 2. Then we check the arrayList and use the search to check the Node in the LinkedList
+         * 3. Then we remove the Node and arrayList
+         * @param key - we pass the key to remove the Mapnode
+         * @return - We return true once it is deleted
+         */
 
-    @Override
+        int index = this.getBucketNumber(key);
+        LinkedList<K> linkedList = this.arrayList.get(index);
+
+        MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) linkedList.search(key);
+
+        linkedList.remove(key);
+        arrayList.remove(index);
+        return true;
+    }
+        @Override
     public String toString() {
         return "HashMap{" + arrayList + '}';
     }
